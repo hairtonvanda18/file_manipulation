@@ -13,5 +13,17 @@ for word in words:
         continue
     words2.append(word)
 
-
-print(words2)
+pares ={}
+for word in words2:
+    if word not in pares:
+        pares[word] = 1
+    else:
+        pares[word] += 1
+#aux=pares.items()
+#for item in aux:
+paresdecres =sorted(pares.items(),key=lambda item: item[1],reverse=True) 
+paresdecres = paresdecres[3:]
+b= open("resultado.csv","w",encoding="utf8")
+for h,v in paresdecres:
+    b.write(f'"{v}";"{h}";"";""\n')
+b.close()
